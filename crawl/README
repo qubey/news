@@ -1,0 +1,8 @@
+get_rss.sh INPUT_FILE OUTPUT_DIRECTORY
+
+This script will take an input file with the format
+url1 name1
+url2 name2
+...
+
+curl all the URLs provided and then save the data for each line in $OUTPUT_DIRECTORY/name{x}/{today's date}.rss
