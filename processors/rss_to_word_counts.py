@@ -31,6 +31,7 @@ for d in directories:
     output_file = join(output_dir, d, out_file_name)
     # make the output directory
     makedirs(name=join(output_dir, d), exist_ok=True)
+    word_counts = {}
 
     # Aggregating over 30 days
     for i in range(30):
@@ -42,7 +43,6 @@ for d in directories:
             print("Can't find " + input_file)
             continue
 
-        word_counts = {}
         rss_content = minidom.parse(input_file)
         channels = rss_content.getElementsByTagName('channel')
 
