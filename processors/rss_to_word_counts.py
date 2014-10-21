@@ -8,22 +8,34 @@ from os import listdir, makedirs
 from os.path import isfile, join
 from xml.dom import minidom
 
-def countWords(sentence, countDict):
+def countWords(sentence, count_dict, ignore_words):
     formatted = sentence.lower()
     formatted = formatted[:formatted.find('<')]
-    formatted = re.sub('[.!,;]', '', formatted)
-    formatted = re.sub('\t', ' ', formatted)
+    formatted = re.sub('[.!,;\'"$]', '', formatted)
+    formatted = re.sub('\'s', '', formatted)
+    formatted = re.sub('[\t-]', ' ', formatted)
     formatted = formatted.strip()
     words = formatted.split()
     for word in words:
-        if word not in countDict.keys():
-            countDict[word] = 1
+        if word in ignore_words:
+            continue
+
+        if word not in count_dict.keys():
+            count_dict[word] = 1
         else:
-            countDict[word] = countDict[word] + 1
+            count_dict[word] = count_dict[word] + 1
 
 input_dir = sys.argv[1]
 output_dir = sys.argv[2]
+ignore_words_file = sys.argv[3]
 out_file_name = time.strftime('%Y-%m-%d.rss')
+
+# Get the set of words to ignore
+ignore_words = []
+ignore_file = open(ignore_words_file, 'r')
+for ignore_word in ignore_file:
+    processed_ignore_word = ignore_word.strip().lower().replace(' ', '')
+    ignore_words.append(processed_ignore_word)
 
 directories = [ d for d in listdir(input_dir) if not isfile(join(input_dir, d))]
 
@@ -52,12 +64,12 @@ for d in directories:
                 titleNodes = item.getElementsByTagName('title')
                 if (len(titleNodes) > 0):
                     title = titleNodes[0].firstChild.data
-                    countWords(title, word_counts)
+                    countWords(title, word_counts, ignore_words)
 
                 descNodes = item.getElementsByTagName('description')
                 if (len(descNodes) > 0 and descNodes[0].firstChild is not None):
                     desc = descNodes[0].firstChild.data
-                    countWords(desc, word_counts)
+                    countWords(desc, word_counts, ignore_words)
                 
 
     f = open(output_file, 'w')
