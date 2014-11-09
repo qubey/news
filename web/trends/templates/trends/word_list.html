@@ -1,0 +1,14 @@
+{% extends "trends/base.html" %}
+
+{% block content %}
+{% if word_list %}
+  {% for word in word_list %}
+    <div class="col-md-2 text-center">
+      <h4 style="padding-top:10px;">{{ word.word }} ({{word.total_count}})</h4>
+      <div class="small">{{ word.location }}</div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p> No words are available </p>
+{% endif %}
+{% endblock %}

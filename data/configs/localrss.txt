@@ -7,7 +7,7 @@ http://blog.cleveland.com/metro/atom.xml cleveland
 http://www.dispatch.com/content/syndication/news_local-state.xml columbus
 http://www.dallasnews.com/news/state/?rss dallas
 http://feeds.denverpost.com/dp-news-breaking-local denver
-http://archive.freep.com/section/&template=RSS&mime=XML&prof=1202&priosort=0&datesort=1/ detroit
+http://rssfeeds.freep.com/freep/news detroit
 http://www.chron.com/rss/feed/Houston-and-Texas-272.php houston
 http://rssfeeds.indystar.com/indystar/allnews indianapolis
 http://www.kmbc.com/11665144?format=rss_2.0&view=feed kansas_city

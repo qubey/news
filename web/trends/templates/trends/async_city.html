@@ -1,0 +1,8 @@
+<h2 class="result-header">{{ city }}</h2>
+
+<ul class="list-unstyled">
+{% for word in results %}
+  <li class="result-item"><h6>{{ word.word }} ({{word.total_count}})</h6></li>
+{% endfor %}
+
+</ul>

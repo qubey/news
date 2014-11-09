@@ -1,3 +1,4 @@
 data/raw_feeds/*
 data/word_counts/*
 .*.swp
+data/configs/db_credentials.txt
