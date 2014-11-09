@@ -1,0 +1,41 @@
+td {
+  width: 550px;
+}
+div#result-area {
+  overflow: scroll;
+  height: 600px;
+  text-align: right;
+  padding-right: 20px;
+  margin-right: 50 px;
+}
+h2.result-header {
+  text-transform: lowercase;
+  color: #0BBED6;
+}
+h2.loading {
+  text-transform; lowercase;
+  color: #aaa;
+}
+.fail {
+  color: #E03838;
+}
+.subunit.hawaii { display: none; }
+.subunit.alaska { display: none; }
+.subunit.usa { fill: #efe; }
+.subunit-boundary {
+  fill: none;
+  stroke: #aaa;
+}
+text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  fill: #777;
+}
+text.selected {
+  fill: #0BBED6;
+  font-weight: bold;
+}
+text:hover {
+  font-weight: bold;
+}
+

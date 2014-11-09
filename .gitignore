@@ -2,3 +2,7 @@ data/raw_feeds/*
 data/word_counts/*
 .*.swp
 data/configs/db_credentials.txt
+
+*.pyc
+
+web/trends/__pycache__/views.cpython-34.pyc

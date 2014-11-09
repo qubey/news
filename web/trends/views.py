@@ -44,7 +44,7 @@ def asyncCity(request, city):
   sanitized_city = city.replace(' ', '_').replace('.', '').lower()
   word_list = WordCount.objects.filter(
     location__iexact=sanitized_city
-  ).order_by('-avg_doc_freq')
+  ).order_by('-avg_doc_freq')[:40]
   context = {
     'city': city,
     'results': word_list
