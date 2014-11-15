@@ -1,0 +1,9 @@
+{
+  "title": "{{ query }}",
+  "results": [
+    {% for word in results %}
+    { "value" : "{{word.value}}",
+      "count": {{word.count}} }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
