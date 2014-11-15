@@ -1,0 +1,17 @@
+{% extends "trends/map.html" %}
+{% load staticfiles %}
+
+{% block update %}
+update('{% static "trends/map/usa3.json" %}', {{word_data}});
+{% endblock %}
+
+{% block result_header %}
+{{ query }}
+{% endblock %}
+
+{% block content %}
+<div class="col-md-8" id="map-area"></div>
+<div class="col-md-4" id="result-area">
+  {% include "trends/list.html" %}
+</div>
+{% endblock %}

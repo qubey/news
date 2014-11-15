@@ -1,27 +1,51 @@
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+  color: #428bca;
+}
+a:active {
+  text-decoration: none;
+}
+input#search {
+  width: 300px;
+}
+div#search-form {
+  padding-top: 22px;
+}
 td {
   width: 550px;
 }
 div#result-area {
   overflow: scroll;
-  height: 600px;
-  text-align: right;
-  padding-right: 20px;
-  margin-right: 50 px;
+  height: 550px;
+  padding-left: 0px;
+  width: 200px;
+}
+.result-item {
+  padding-left: 0px;
+}
+h2.title {
+  color: #aaa;
+  padding-left: 30px;
 }
 h2.result-header {
   text-transform: lowercase;
   color: #0BBED6;
+  padding-left: 0px;
 }
 h2.loading {
   text-transform; lowercase;
   color: #aaa;
 }
 .fail {
-  color: #E03838;
+  color: #E37F7F;
 }
-.subunit.hawaii { display: none; }
-.subunit.alaska { display: none; }
-.subunit.usa { fill: #efe; }
+.subunit { fill: #efe; }
 .subunit-boundary {
   fill: none;
   stroke: #aaa;
@@ -35,7 +59,10 @@ text.selected {
   fill: #0BBED6;
   font-weight: bold;
 }
-text:hover {
+text.selectable:hover {
   font-weight: bold;
 }
 
+circle.density {
+  fill: #0BBED6;
+}

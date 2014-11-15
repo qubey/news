@@ -6,3 +6,9 @@ data/configs/db_credentials.txt
 *.pyc
 
 web/trends/__pycache__/views.cpython-34.pyc
+
+*.pyc
+
+web/trends/__pycache__/urls.cpython-34.pyc
+
+web/trends/__pycache__/views.cpython-34.pyc

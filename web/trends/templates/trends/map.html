@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  {% load staticfiles %}
+  <link href="{% static "trends/bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+  <link href="{% static "trends/map/usa.css" %}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="{% static "trends/bootstrap/js/bootstrap.js" %}"></script>
+  <script src="{% static "trends/map/map.js" %}"></script>
+
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+
+  <title>wtf local</title>
+</head>
+
+<body onload="{% block update %}{% endblock %}">
+<div class="container">
+<div class="row">
+  <h2 class="title col-md-2">
+    <a href="/trends/map">wtf local</a>
+  </h2>
+  <div class="col-md-6" id="search-form">
+    <form
+      role="form"
+      class="form-inline"
+      action="/trends/search"
+      autocomplete="false"
+    >
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="search"
+          name="q"
+          placeholder="enter term"
+          {% if search_text %}
+            value="{{search_text}}"
+          {% endif %}
+        >
+        <button type="submit" class="btn btn-primary">search</button>
+      </div>
+    </form>
+  </div>
+  <h2 class="result-header col-md-4 pull-right" id="result-header">
+    {% block result_header %}
+    {% endblock %}
+  </h2>
+</div>
+<div class="row">
+{% block content %} {% endblock %}
+</div>
+</div>
+</body>
+</html>

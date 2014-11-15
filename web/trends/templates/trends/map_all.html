@@ -1,0 +1,15 @@
+{% extends "trends/map.html" %}
+{% load staticfiles %}
+
+{% block update %}
+update('{% static "trends/map/usa3.json" %}');
+{% endblock %}
+
+{% block result_header %}
+select a city to view results
+{% endblock %}
+
+{% block content %}
+<div class="col-md-8" id="map-area"></div>
+<div class="col-md-4" id="result-area"></div>
+{% endblock %}

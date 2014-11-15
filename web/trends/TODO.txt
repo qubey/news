@@ -1,3 +1,2 @@
 - for the search functionality, add links to the articles with the highest frequency of the search term per city
-- start doing shit with the UI maybe (famous js, bootstrap css)
--- added bootstrap files
+- add more data sources to fill in all the cities
