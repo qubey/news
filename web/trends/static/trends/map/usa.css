@@ -11,6 +11,14 @@ a:hover {
 a:active {
   text-decoration: none;
 }
+
+.result-item a:link {
+  color: black;
+}
+.result-item a:visited {
+  color: black;
+}
+
 input#search {
   width: 300px;
 }

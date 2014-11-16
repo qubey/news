@@ -11,7 +11,7 @@ http://rssfeeds.freep.com/freep/news detroit
 http://www.chron.com/rss/feed/Houston-and-Texas-272.php houston
 http://rssfeeds.indystar.com/indystar/allnews indianapolis
 http://www.kmbc.com/11665144?format=rss_2.0&view=feed kansas_city
-http://www.lasvegassun.com/feeds/headlines/north-las-vegas/ vegas
+http://www.lasvegassun.com/feeds/headlines/north-las-vegas/ las_vegas
 http://www.latimes.com/local/rss2.0.xml los_angeles
 http://www.jsonline.com/rss/?c=y&c=y&path=%2Fnews%2Fmilwaukee&path=%252Fnews%252Fmilwaukee milwaukee
 http://www.miamiherald.com/news/state/florida/?widgetName=rssfeed&widgetContentId=712015&getXmlFeed=true miami

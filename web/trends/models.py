@@ -7,6 +7,9 @@ class WordCount(models.Model):
   total_count = models.IntegerField()
   avg_doc_freq = models.FloatField()
 
+  def __str__(self):
+    return self.location + ", " + self.word + ": " + self.avg_doc_freq
+
 class DataSources(models.Model):
   location = models.CharField(max_length=30, primary_key=True)
   doc_count = models.IntegerField()

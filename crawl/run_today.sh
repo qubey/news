@@ -1,3 +1,4 @@
 #!/bin/bash
 
-~/news/crawl/get_rss.sh ~/news/data/configs/localrss.txt ~/news/data/raw_feeds
+~/news/crawl/get_rss.sh $NEWS_HOME/data/configs/localrss.txt \
+  $NEWS_HOME/data/raw_feeds

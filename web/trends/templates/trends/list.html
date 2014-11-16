@@ -1,7 +1,13 @@
 {% if results %}
   <ul class="list-unstyled">
   {% for word in results %}
-    <li class="result-item"><h6>{{ word.value }} ({{word.count}})</h6></li>
+    <li class="result-item">
+      <h6>
+        <a href="/trends/map#{{word.value.split|join:"_"}}">
+          {{ word.value }} ({{word.count}})
+        </a>
+      </h6>
+    </li>
   {% endfor %}
 {% else %}
   <h4 class="fail">no results</h2>

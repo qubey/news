@@ -1,4 +1,12 @@
-function selectCity(element, data, index) {
+function normalizeName(input) {
+  return input.toLowerCase().replace('.', '').replace(' ', '_');
+}
+
+function createSearchLink(text, query) {
+  return "<a href=\"/trends/search?q=" + query + "\">" + text + "</a>";
+}
+
+function selectCity(element, data) {
   clearSelections();
   d3.select(element).attr("class", "place-label selected");
   d3.selectAll('.result-item').remove();
@@ -27,7 +35,8 @@ function selectCity(element, data, index) {
         .enter().append("li")
         .attr("class", "result-item")
         .html(function(d) {
-          return "<h6>" + d.value + "(" + d.count + ")</h6>";
+          var text = d.value + " (" + d.count + ")";
+          return "<h6>" + createSearchLink(text, d.value) + "</h6>";
         });
     } else {
       list.append("h4")
@@ -67,7 +76,6 @@ function createMap(svg, subunits, path) {
       return d.properties.name !== "Hawaii" && d.properties.name !== "Alaska";
     })
     .attr("class", function(d) {
-      //return "subunit " + d.properties.name.replace(/\./g, "").toLowerCase();
       return "subunit";
     })
     .attr("d", path);
@@ -84,7 +92,7 @@ function createMapBoundary(svg, usa, path) {
 }
 
 function dataFromWord(word_data, raw_city_name, bias, scalar) {
-  city_name = raw_city_name.toLowerCase().replace(' ', '_').replace('.', '');
+  city_name = normalizeName(raw_city_name);
   var data = bias;
   if (city_name in word_data) {
     data += scalar * word_data[city_name];
@@ -94,13 +102,11 @@ function dataFromWord(word_data, raw_city_name, bias, scalar) {
 
 function plotPlaces(svg, usa, path, projection, word_data) {
   var displayDensity = (typeof(word_data) !== 'undefined');
-  var label_class = "place-label selectable";
   var circle_class = "place";
   var clickHandler = function (d, i) {
-    selectCity(this, d, i);
+    selectCity(this, d);
   }
   if (displayDensity) {
-    label_class = "place-label";
     circle_class += " density";
     clickHandler  = function(d, i) { }
   }
@@ -132,7 +138,8 @@ function plotPlaces(svg, usa, path, projection, word_data) {
   svg.selectAll(".place-label")
     .data(places.features)
     .enter().append("text")
-    .attr("class", label_class)
+    .attr("class", "place-label")
+    .attr("id", function(d) { return normalizeName(d.properties.name); })
     .attr("transform", function(d) {
       return "translate(" + projection(d.geometry.coordinates) + ")";
     })
@@ -147,6 +154,12 @@ function plotPlaces(svg, usa, path, projection, word_data) {
     .style("text-anchor", function(d) {
       return d.geometry.coordinates[0] > -94 ? "start" : "end";
     });
+
+  if (window.location.hash) {
+    // we need to pre-load a city
+    svg.select(normalizeName(window.location.hash))
+      .each(clickHandler);
+  }
 }
 
 function update(file, word_data) {

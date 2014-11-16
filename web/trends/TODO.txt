@@ -1,2 +1,3 @@
 - for the search functionality, add links to the articles with the highest frequency of the search term per city
 - add more data sources to fill in all the cities
+- refactor the data pipeline for updating the database tables
